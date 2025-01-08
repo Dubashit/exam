@@ -1,38 +1,39 @@
-import {isComplex, isFraction} from "./variant1";
+// import {isComplex, isFraction} from "./variant1";
+const { isComplex, isFraction } = require("../libs/variant1");
 
-export function isRange (x) {
+function isRange(x) {
   return (x && x.constructor.prototype.isRange === true) || false
 }
 
-export function isIndex (x) {
+function isIndex(x) {
   return (x && x.constructor.prototype.isIndex === true) || false
 }
 
-export function isBoolean (x) {
+function isBoolean(x) {
   return typeof x === 'boolean'
 }
 
-export function isResultSet (x) {
+function isResultSet(x) {
   return (x && x.constructor.prototype.isResultSet === true) || false
 }
 
-export function isHelp (x) {
+function isHelp(x) {
   return (x && x.constructor.prototype.isHelp === true) || false
 }
 
-export function isFunction (x) {
+function isFunction(x) {
   return typeof x === 'function'
 }
 
-export function isDate (x) {
+function isDate(x) {
   return x instanceof Date
 }
 
-export function isRegExp (x) {
+function isRegExp(x) {
   return x instanceof RegExp
 }
 
-export function isObject (x) {
+function isObject(x) {
   return !!(x &&
     typeof x === 'object' &&
     x.constructor === Object &&
@@ -40,6 +41,19 @@ export function isObject (x) {
     !isFraction(x))
 }
 
-export function isNull (x) {
+function isNull(x) {
   return x === null
+}
+
+module.exports = {
+  isRange,
+  isIndex,
+  isBoolean,
+  isResultSet,
+  isHelp,
+  isFunction,
+  isDate,
+  isRegExp,
+  isObject,
+  isNull
 }
